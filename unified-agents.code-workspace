@@ -1,0 +1,16 @@
+﻿{
+    "folders": [
+        {
+            "name": "⚙️ Orchestrator (Brain)",
+            "path": "C:\\Users\\heman\\AI-Agent-Orchestrator"
+        },
+        {
+            "name": "💻 Target Workspace (Code)",
+            "path": "C:\\Users\\heman\\AI-Agent-Workspace"
+        }
+    ],
+    "settings": {
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 500
+    }
+}
