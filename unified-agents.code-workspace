@@ -1,16 +1,52 @@
 ﻿{
     "folders": [
         {
-            "name": "⚙️ Orchestrator (Brain)",
+            "name": "Orchestrator (Brain)",
             "path": "C:\\Users\\heman\\AI-Agent-Orchestrator"
         },
         {
-            "name": "💻 Target Workspace (Code)",
+            "name": "Target Workspace (Code)",
             "path": "C:\\Users\\heman\\AI-Agent-Workspace"
         }
     ],
     "settings": {
         "files.autoSave": "afterDelay",
         "files.autoSaveDelay": 500
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Run Agent Task",
+                "type": "shell",
+                "command": "python",
+                "args": [
+                    "orchestrator.py",
+                    "--task",
+                    "${input:taskPrompt}",
+                    "--confirm"
+                ],
+                "options": {
+                    "cwd": "C:\\Users\\heman\\AI-Agent-Orchestrator"
+                },
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "reveal": "always",
+                    "panel": "dedicated",
+                    "focus": true
+                },
+                "problemMatcher": []
+            }
+        ],
+        "inputs": [
+            {
+                "id": "taskPrompt",
+                "type": "promptString",
+                "description": "Enter the prompt for the AI Orchestrator:"
+            }
+        ]
     }
 }

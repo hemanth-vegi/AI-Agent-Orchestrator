@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Free-tier-first, approval-gated ACP coding-agent orchestrator for Windows.
 
 V1 supports ACP agents (Kiro CLI v3, Cline, GitHub Copilot CLI) and a
@@ -239,7 +239,7 @@ class ACPProcess:
             safe_options = [o for o in options if "reject" in str(o.get("kind", "")).lower()]
         print("Permission options (persistent/always approvals are disabled by this orchestrator):")
         for i, opt in enumerate(safe_options, 1):
-            print(f"  {i}. {opt.get('name', opt.get('kind', 'option'))} [{opt.get('kind', 'unknown')}] — {opt.get('optionId', '?')}")
+            print(f"  {i}. {opt.get('name', opt.get('kind', 'option'))} [{opt.get('kind', 'unknown')}] â€” {opt.get('optionId', '?')}")
         answer = input("Choose a one-time approval number, or press Enter to deny: ").strip()
         chosen = None
         if answer.isdigit() and 1 <= int(answer) <= len(safe_options):
@@ -519,7 +519,7 @@ def classify_agent_response(response: str, stop_reason: str | None, stderr: list
             detail += " stderr excerpt: " + diagnostics[-1600:]
         return "failed", redacted_error(detail)
 
-    status_match = re.search(r"(?im)^\s*ORCHESTRATOR_STATUS:\s*(COMPLETE|HANDOFF|NEEDS_USER)\s*$", response)
+    status_match = re.search(r"(?im)^\s*ORCHESTRATOR_STATUS:\s*(COMPLETE|HANDOFF|NEEDS_USER)", response)
     if not status_match:
         return "needs_user", "Agent returned text but no recognized ORCHESTRATOR_STATUS line"
     status = status_match.group(1).upper()
@@ -584,7 +584,7 @@ def run_ollama_fallback(task: str, state: dict[str, Any], cfg: dict[str, Any]) -
 
 
 def command_health(cfg: dict[str, Any]) -> int:
-    print("AI Agent Orchestrator — read-only preflight\n")
+    print("AI Agent Orchestrator â€” read-only preflight\n")
     print("Project folder:", cfg.get("project_path", "(not set)"))
     print("Automatic tool approval: DISABLED (every permission request is interactive)")
     print("Paid fallback: DISABLED by policy; stop/fallback on quota/billing errors")
@@ -775,7 +775,7 @@ def run(args: argparse.Namespace) -> int:
             raise OrchestratorError("Task cannot be empty")
         print("\nTarget project:", project)
         print("Orchestrator files/logs remain under:", APP_DIR)
-        print("Agent order: Kiro CLI → Cline (OpenRouter free model) → Copilot CLI → Ollama text-only fallback")
+        print("Agent order: Kiro CLI â†’ Cline (OpenRouter free model) â†’ Copilot CLI â†’ Ollama text-only fallback")
         print("Continue is configured separately in VS Code; its extension has no verified standalone CLI in this setup.")
         print("Safety: ACP tool actions require your one-time approval. No persistent approvals are offered. No paid fallback is allowed.")
         print("\nAgents may edit the target project after you approve individual tool calls.")
@@ -920,3 +920,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
