@@ -228,7 +228,7 @@ class ACPProcess:
             print("Input:", json.dumps(tool_call.get("rawInput"), ensure_ascii=False)[:1200])
         if not options:
             print("No permission options supplied; refusing safely.")
-            self.send({"jsonrpc": "2.0", "id": request_id, "result": {"outcome": "cancelled"}})
+            self.send({"jsonrpc": "2.0", "id": request_id, "result": {"outcome": {"outcome": "cancelled"}}})
             return
         safe_options = []
         for option in options:
@@ -245,15 +245,15 @@ class ACPProcess:
         if answer.isdigit() and 1 <= int(answer) <= len(safe_options):
             chosen = safe_options[int(answer) - 1]
         if chosen and "reject" not in str(chosen.get("kind", "")).lower():
-            result = {"outcome": "selected", "optionId": chosen.get("optionId")}
+            outcome_data = {"outcome": "selected", "optionId": chosen.get("optionId")}
         elif chosen:
             self.user_denied = True
-            result = {"outcome": "selected", "optionId": chosen.get("optionId")}
+            outcome_data = {"outcome": "selected", "optionId": chosen.get("optionId")}
         else:
             self.user_denied = True
             reject = next((o for o in options if "reject" in str(o.get("kind", "")).lower() and "always" not in str(o.get("kind", "")).lower()), None)
-            result = {"outcome": "selected", "optionId": reject["optionId"]} if reject else {"outcome": "cancelled"}
-        self.send({"jsonrpc": "2.0", "id": request_id, "result": result})
+            outcome_data = {"outcome": "selected", "optionId": reject["optionId"]} if reject else {"outcome": "cancelled"}
+        self.send({"jsonrpc": "2.0", "id": request_id, "result": {"outcome": outcome_data}})
 
     def _handle_line(self, line: str) -> dict[str, Any] | None:
         if not line.strip():
