@@ -1,0 +1,26 @@
+﻿# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment and secrets (Never commit credentials)
+.env
+.env.*
+*.key
+*.pem
+
+# Orchestrator runtime logs and state
+logs/
+state/
+
+# Local configuration backups and test artifacts
+*.backup-*
+*.cline-test-backup-*
+*.tmp
+apply_cline_adapter.py
+
+# Editor and OS artifacts
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini

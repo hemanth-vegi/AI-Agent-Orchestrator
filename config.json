@@ -1,0 +1,218 @@
+﻿{
+    "project_path":  "C:\\Users\\heman\\AI-Agent-Workspace",
+    "agents":  [
+                   {
+                       "name":  "kiro",
+                       "label":  "Kiro CLI (Amazon Q successor; separate from Amazon Q VS Code extension)",
+                       "type":  "acp",
+                       "enabled":  true,
+                       "command":  "%LOCALAPPDATA%\\Kiro-Cli\\kiro-cli.exe",
+                       "args":  [
+                                    "acp",
+                                    "--agent-engine=v3"
+                                ],
+                       "timeout_seconds":  900,
+                       "tier":  "enterprise_trial"
+                   },
+                   {
+                       "name":  "cline-nemotron-ultra",
+                       "label":  "Cline (Nemotron 3 Ultra Free)",
+                       "type":  "cline_cli",
+                       "tier":  "architecture",
+                       "tags":  [
+                                    "refactor",
+                                    "system",
+                                    "architecture",
+                                    "design",
+                                    "planning"
+                                ],
+                       "command":  "node",
+                       "args":  [
+                                    "C:\\Users\\heman\\AppData\\Roaming\\npm\\node_modules\\cline\\bin\\cline",
+                                    "--json",
+                                    "--provider",
+                                    "openrouter",
+                                    "--model",
+                                    "nvidia/nemotron-3-ultra:free",
+                                    "--auto-approve",
+                                    "false"
+                                ],
+                       "timeout_seconds":  900,
+                       "enabled":  true
+                   },
+                   {
+                       "name":  "cline-nemotron-3.5",
+                       "label":  "Cline (Nemotron 3.5 Lightning Free)",
+                       "type":  "cline_cli",
+                       "tier":  "fast_coding",
+                       "tags":  [
+                                    "speed",
+                                    "feature",
+                                    "script",
+                                    "general"
+                                ],
+                       "command":  "node",
+                       "args":  [
+                                    "C:\\Users\\heman\\AppData\\Roaming\\npm\\node_modules\\cline\\bin\\cline",
+                                    "--json",
+                                    "--provider",
+                                    "openrouter",
+                                    "--model",
+                                    "nvidia/nemotron-3.5-lightning:free",
+                                    "--auto-approve",
+                                    "false"
+                                ],
+                       "timeout_seconds":  900,
+                       "enabled":  true
+                   },
+                   {
+                       "name":  "cline-flint",
+                       "label":  "Cline (Recursive Flint Free)",
+                       "type":  "cline_cli",
+                       "tier":  "bugfix",
+                       "tags":  [
+                                    "bug",
+                                    "fix",
+                                    "error",
+                                    "traceback",
+                                    "test",
+                                    "patch"
+                                ],
+                       "command":  "node",
+                       "args":  [
+                                    "C:\\Users\\heman\\AppData\\Roaming\\npm\\node_modules\\cline\\bin\\cline",
+                                    "--json",
+                                    "--provider",
+                                    "openrouter",
+                                    "--model",
+                                    "recursive/flint:free",
+                                    "--auto-approve",
+                                    "false"
+                                ],
+                       "timeout_seconds":  900,
+                       "enabled":  true
+                   },
+                   {
+                       "name":  "cline-cohere",
+                       "label":  "Cline (Cohere North Mini Code Free)",
+                       "type":  "cline_cli",
+                       "tier":  "bugfix",
+                       "tags":  [
+                                    "debug",
+                                    "terminal",
+                                    "cli",
+                                    "syntax"
+                                ],
+                       "command":  "node",
+                       "args":  [
+                                    "C:\\Users\\heman\\AppData\\Roaming\\npm\\node_modules\\cline\\bin\\cline",
+                                    "--json",
+                                    "--provider",
+                                    "openrouter",
+                                    "--model",
+                                    "cohere/north-mini-code:free",
+                                    "--auto-approve",
+                                    "false"
+                                ],
+                       "timeout_seconds":  900,
+                       "enabled":  true
+                   },
+                   {
+                       "name":  "cline-dots3",
+                       "label":  "Cline (Dots3 Note Preview Free)",
+                       "type":  "cline_cli",
+                       "tier":  "multistep",
+                       "tags":  [
+                                    "multistep",
+                                    "reasoning",
+                                    "docs"
+                                ],
+                       "command":  "node",
+                       "args":  [
+                                    "C:\\Users\\heman\\AppData\\Roaming\\npm\\node_modules\\cline\\bin\\cline",
+                                    "--json",
+                                    "--provider",
+                                    "openrouter",
+                                    "--model",
+                                    "dots-studio/dots3-note-preview:free",
+                                    "--auto-approve",
+                                    "false"
+                                ],
+                       "timeout_seconds":  900,
+                       "enabled":  true
+                   },
+                   {
+                       "name":  "cline-gemma4",
+                       "label":  "Cline (Gemma 4 31B IT Free)",
+                       "type":  "cline_cli",
+                       "tier":  "general",
+                       "tags":  [
+                                    "general",
+                                    "explanation",
+                                    "analysis"
+                                ],
+                       "command":  "node",
+                       "args":  [
+                                    "C:\\Users\\heman\\AppData\\Roaming\\npm\\node_modules\\cline\\bin\\cline",
+                                    "--json",
+                                    "--provider",
+                                    "openrouter",
+                                    "--model",
+                                    "google/gemma-4-31b-it:free",
+                                    "--auto-approve",
+                                    "false"
+                                ],
+                       "timeout_seconds":  900,
+                       "enabled":  true
+                   },
+                   {
+                       "name":  "cline-free-router",
+                       "label":  "Cline (OpenRouter Free Router Auto)",
+                       "type":  "cline_cli",
+                       "tier":  "pool_router",
+                       "tags":  [
+                                    "fallback_router",
+                                    "auto"
+                                ],
+                       "command":  "node",
+                       "args":  [
+                                    "C:\\Users\\heman\\AppData\\Roaming\\npm\\node_modules\\cline\\bin\\cline",
+                                    "--json",
+                                    "--provider",
+                                    "openrouter",
+                                    "--model",
+                                    "openrouter/free",
+                                    "--auto-approve",
+                                    "false"
+                                ],
+                       "timeout_seconds":  900,
+                       "enabled":  true
+                   },
+                   {
+                       "name":  "copilot",
+                       "label":  "GitHub Copilot CLI (included free allowance only)",
+                       "type":  "acp",
+                       "enabled":  true,
+                       "command":  "%LOCALAPPDATA%\\Programs\\Microsoft VS Code\\bin\\copilot-shim\\copilot.exe",
+                       "args":  [
+                                    "--acp",
+                                    "--stdio"
+                                ],
+                       "timeout_seconds":  900,
+                       "tier":  "subscription_backup"
+                   }
+               ],
+    "ollama":  {
+                   "model":  "qwen2.5-coder:3b",
+                   "api_url":  "http://127.0.0.1:11434/api/chat",
+                   "timeout_seconds":  180,
+                   "role":  "last-resort text-only recovery-plan generator; does not edit files"
+               },
+    "safety":  {
+                   "paid_fallback":  false,
+                   "auto_approve_tools":  false,
+                   "persist_tool_approvals":  false,
+                   "continue_after_user_denial":  false,
+                   "project_mutation_requires_confirmation":  true
+               }
+}
