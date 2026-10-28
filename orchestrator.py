@@ -391,6 +391,8 @@ class ClineCLIProcess:
 
     def run_task(self, task_prompt: str) -> dict[str, Any]:
         full_cmd = list(self.command)
+        if "-y" not in full_cmd:
+            full_cmd.append("-y")
         if "--cwd" not in full_cmd:
             full_cmd.extend(["--cwd", str(self.cwd)])
         full_cmd.append(task_prompt)
